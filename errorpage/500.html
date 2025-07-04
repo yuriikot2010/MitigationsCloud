@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Restricted</title>
+     <style>
+    :root {
+      --primary-bg: #0a0a0a;
+      --secondary-bg: #1a1a1a;
+      --accent-color: #e63946;
+      --text-color: #f1faee;
+      --text-muted: #a8a8a8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 800px;
+  padding: 1rem;
+}
+
+.container {
+  background-color: var(--secondary-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(230, 57, 70, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+
+    .error-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .error-icon {
+      font-size: 3rem;
+      color: var(--accent-color);
+      margin-right: 1.5rem;
+    }
+
+    .error-title {
+      font-size: 2rem;
+      color: var(--accent-color);
+      margin-bottom: 0.25rem;
+    }
+
+    .error-code {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: normal;
+    }
+
+    .error-content {
+      background-color: var(--secondary-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .error-details {
+      margin-bottom: 1.5rem;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #c1121f;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--accent-color);
+      border: 1px solid var(--accent-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(230, 57, 70, 0.1);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 2rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .ray-id, .client-ip, .geo-info {
+      font-family: monospace;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .challenge-form {
+      margin-top: 2rem;
+    }
+
+    .challenge-input {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #2a2a2a;
+      border: 1px solid #3a3a3a;
+      border-radius: 4px;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .cf-challenge-container {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background-color: #2a2a2a;
+      border-radius: 6px;
+    }
+
+    .countdown {
+      display: inline-block;
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+    <!-- 500 Error Page -->
+        <div class="error-header">
+            <div class="error-icon pulse">💥</div>
+            <div>
+                <h1 class="error-title">Server Error <span class="error-code">(500 Internal Server Error)</span></h1>
+                <p>Something went wrong on our end</p>
+            </div>
+        </div>
+        
+        <div class="error-content">
+            <div class="error-details">
+                <p>The server encountered an internal error and was unable to complete your request.</p>
+                <p>Our technical team has been notified and is working to resolve the issue.</p>
+            </div>
+            
+            <div class="cf-challenge-container">
+                ::CLOUDFLARE_ERROR_500S_BOX::
+            </div>
+            
+            <p>Request ID: <span class="ray-id">::RAY_ID::</span></p>
+            <p>Your IP: <span class="client-ip">::CLIENT_IP::</span></p>
+            
+            <div class="action-buttons">
+                <a href="/" class="btn btn-primary">Refresh Page</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Protected by Cloudflare • © <script>document.write(new Date().getFullYear())</script></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
